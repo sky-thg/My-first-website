@@ -1,0 +1,72 @@
+A student-centered digital management platform tailored for Vietnamese university students to balance study, time, finances, and well-being.
+
+User Review Required
+IMPORTANT
+
+Directory Structure Review: Please review the proposed directory structure below to ensure it covers all student needs (Study, Time, Tasks, Budget, Well-being) before I start the implementation.
+
+Proposed Directory Structure
+unilife-vn-dashboard/
+├── app/
+│   ├── layout.tsx              # Root layout (Mobile-first, Dark mode ready)
+│   ├── page.tsx                # Landing / Dashboard Overview
+│   ├── study-planner/
+│   │   └── page.tsx            # Credit-based course & exam manager
+│   ├── time-management/
+│   │   └── page.tsx            # Schedules & Balance tracking
+│   ├── tasks-habits/
+│   │   └── page.tsx            # Daily tasks & Habit streaks
+│   ├── student-budget/
+│   │   └── page.tsx            # Allowance, Rent, Food tracking
+│   └── well-being/
+│       └── page.tsx            # Stress levels & Self-care tracking
+├── components/
+│   ├── ui/                     # shadcn/ui primitives
+│   ├── dashboard/
+│   │   ├── progress-overview.tsx  # Completion rates, streaks
+│   │   ├── outcome-projection.tsx # Dynamic projections (GPA, Savings)
+│   │   ├── priority-controls.tsx  # Sliders for generic inputs
+│   │   └── student-insights.tsx   # Context-aware alerts (Workload warnings)
+│   └── layout/
+│       ├── mobile-nav.tsx      # Bottom nav for mobile usage
+│       └── sidebar.tsx         # Desktop sidebar
+├── lib/
+│   ├── calculations.ts         # Logic for GPA, Budget Remainder, Time Checks
+│   ├── constants.ts            # Config (e.g., VN University grading scales)
+│   └── types.ts                # TypeScript interfaces
+├── __tests__/
+│   ├── study-logic.test.ts     # Workload calculation tests
+│   └── budget-logic.test.ts    # Expense projection tests
+└── public/
+Proposed Changes
+Tech Stack
+Framework: Next.js 14 (App Router)
+Styling: Tailwind CSS (Calm, productivity-focused palette)
+UI Library: shadcn/ui
+Testing: Jest
+core Components
+[NEW] 
+progress-overview.tsx
+Visualizes "Student Progress" (e.g., % of credits finished, budget used).
+[NEW] 
+outcome-projection.tsx
+Real-time updates based on user inputs (e.g., "If I spend 2M VND more, I will be broke by day 20").
+[NEW] 
+student-insights.tsx
+Smart alerts: "Warning: Exam period approaching, reduce part-time work hours."
+Logic & Testing
+[NEW] 
+calculations.ts
+calculateStudyLoad(credits, weeks)
+projectBudget(allowance, fixedExpenses, dailySpend)
+assessBalance(studyHours, workHours, restHours)
+[NEW] 
+tests
+Unit tests to verify the above logic ensures strict confidence in projections.
+Verification Plan
+Automated Tests
+npm test to run Jest suites for logic.
+Manual Verification
+Mobile Responsiveness: Critical for students on the go.
+Dark Mode: Check visibility for late-night sessions.
+Interactivity: Verify sliders update projections instantly using React state.
